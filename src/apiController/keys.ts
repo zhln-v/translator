@@ -1,0 +1,2 @@
+export const token = 'Bearer t1.9euelZqUy5TNnJHPns_OicaZnI3JmO3rnpWam4qaxseJkpKbj8yNzcbPj8zl8_c5QBNG-e9BBUhD_t3z93luEEb570EFSEP-zef1656VmpyMi4-Sx5GKjZmJjsqLzZDG7_zF656VmpyMi4-Sx5GKjZmJjsqLzZDG.dpqBHeT22fzGPfqM9WpI-XUKJruB0pE6Yr8H8klCFr6GY202mSORBqIlWiQPurCcWG0yc-LIQMvq-fEKBXi6Aw';
+export const folderId = 'b1g3rj3vqi9pq96kngsr';
