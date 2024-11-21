@@ -1,8 +1,3 @@
-// import { Picker } from '@react-native-picker/picker';
-// import axios from 'axios';
-// import React, { useEffect, useState } from 'react';
-// import { Button, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
-
 import { NavigationContainer } from "@react-navigation/native";
 
 import React from "react";

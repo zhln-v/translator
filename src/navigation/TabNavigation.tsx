@@ -7,16 +7,9 @@ import Bookmarks from '../screens/Bookmarks';
 
 const Tab = createBottomTabNavigator();
 
-const getTabBarLabelStyle = (props: { focused: boolean }) => {
-    return {
-      color: props.focused ? 'red' : 'blue',  // Пример изменения цвета в зависимости от того, активна ли вкладка
-      fontWeight: 'bold',
-    };
-  };
-
 const TabNavigation = () => {
   return (
-    <Tab.Navigator screenOptions={{ tabBarStyle: {backgroundColor: '#9370DB'}}}>
+    <Tab.Navigator screenOptions={{ tabBarStyle: {backgroundColor: '#9370DB', height: 60}}}>
         <Tab.Screen name="Home" component={ Home } options={{
             tabBarIcon: (props) => <BottomBarIcon {...props} name="translate" color="#fff" />,
             tabBarLabel: 'Перевести',
