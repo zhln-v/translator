@@ -7,6 +7,7 @@ import ButtonsArray from '../components/ButtonsArray/ButtonsArray';
 import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import TextField from '../components/TextField/TextField';
+import { useAppSettings } from '../theme/ThemeProvider';
 
 const theme = THEME['purple'];
 
@@ -65,6 +66,9 @@ const Bookmarks = () => {
       }
   };
   
+  const { appTheme, fontSize } = useAppSettings();
+
+  const theme = THEME[appTheme];
 
     return (
         <View style={styles.container}>
@@ -74,7 +78,7 @@ const Bookmarks = () => {
                 renderItem={({ item, index }) => (
                     <View style={styles.record}>
 
-                        <View style={styles.contentName}>
+                        <View style={[styles.contentName, {backgroundColor: theme.background}]}>
                               <Text style={styles.contentNameText}>
                                 {item.sourceLanguage}
                               </Text>
@@ -84,8 +88,8 @@ const Bookmarks = () => {
                               </Text>
                         </View>
 
-                        <View style={styles.contentDescription}>
-                          <Text style={styles.originalText}>{item.originalText}</Text>
+                        <View style={[styles.contentDescription, {backgroundColor: theme.background + 'aa'}]}>
+                          <Text style={[styles.originalText, {fontSize}]}>{item.originalText}</Text>
                           <View style={styles.centerContent}>
                             <Icon name='translate' color={theme.background} size={30} />
                           </View>
@@ -101,7 +105,7 @@ const Bookmarks = () => {
                         </View>
 
 
-                        <View style={styles.buttonsArray}>
+                        <View style={[styles.buttonsArray, { backgroundColor: theme.background + '' }]}>
                             <ButtonsArray>
                                 <PicButton name="save" color="#fff" onPress={() => {handleSave(index)}} />
                                 <PicButton name="delete" color="#f00" onPress={() => { handleDelete(index) } } />
@@ -131,7 +135,7 @@ const styles = StyleSheet.create({
     },
     contentName: {
         padding: 10,
-        backgroundColor: theme.background,
+        // backgroundColor: theme.background,
         flexDirection: 'row',
         alignItems: 'center',
         gap: 5
@@ -140,7 +144,7 @@ const styles = StyleSheet.create({
         color: '#fff',
     },
     contentDescription: {
-        backgroundColor: theme.background + 'aa',
+        // backgroundColor: theme.background + 'aa',
         // alignItems: 'center',
         padding: 0,
         gap: 10
@@ -149,7 +153,7 @@ const styles = StyleSheet.create({
         color: '#ccc',
     },
     buttonsArray: {
-        backgroundColor: theme.background + 'aa',
+        // backgroundColor: theme.background + 'aa',
         flexDirection: 'row',
         justifyContent: 'flex-end',
         padding: 10,

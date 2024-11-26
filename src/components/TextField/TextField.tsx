@@ -3,8 +3,7 @@ import { Button, ScrollView, StyleSheet, StyleSheetProperties, Text, TextInput, 
 import THEME from '../../theme/theme'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import ButtonsArray from '../ButtonsArray/ButtonsArray';
-
-const theme = THEME['purple'];
+import { useAppSettings } from '../../theme/ThemeProvider';
 
 interface TextFieldProps {
     replyContent?: React.ReactNode;
@@ -22,15 +21,17 @@ interface TextFieldProps {
 }
 
 const TextField: React.FC<TextFieldProps> = ({replyContent, button, dropdown, placeholder, title, value, setValue, hidden, style, styleContainer, wrapperStyle, defaultValue}) => {
+    const {appTheme, fontSize} = useAppSettings();
+    const theme = THEME[appTheme];
   return (
     <View style={[styles.container, styleContainer]}>
-        <ScrollView style={[styles.wrapper, wrapperStyle]}>
-            { title && <Text style={styles.name}>{title}</Text> }
+        <ScrollView style={[styles.wrapper, wrapperStyle, {backgroundColor: theme.background + 'aa'}, wrapperStyle?.backgroundColor && {backgroundColor: wrapperStyle.backgroundColor}]}>
+            { title && <Text style={[styles.name, {color: theme.color, fontSize}]}>{title}</Text> }
             <TextInput
                 defaultValue={defaultValue}
                 value={value}
                 onChangeText={(text) => setValue && setValue(text)}
-                style={[styles.field, style]}
+                style={[styles.field, style, { fontSize, color: theme.color, backgroundColor: theme.background }, style?.backgroundColor && {backgroundColor: style.backgroundColor}]}
                 selectionColor={'#fff'}
                 multiline
                 numberOfLines={10}
@@ -44,7 +45,7 @@ const TextField: React.FC<TextFieldProps> = ({replyContent, button, dropdown, pl
             </ButtonsArray> }
 
             {dropdown && 
-                <View style={styles.dropdown}>{ dropdown }</View>
+                <View>{ dropdown }</View>
             }
 
             {button}
@@ -60,18 +61,13 @@ const styles = StyleSheet.create({
     wrapper: {
         borderRadius: 8,
         overflow: 'hidden',
-        backgroundColor: theme.background + 'aa',
+        // backgroundColor: theme.background + 'aa',
         flexDirection: 'column'
     },
-    dropdown: {
-        // width: '100%',
-        // height: 40
-    },
     field: {
-        backgroundColor: theme.background,
+        // backgroundColor: theme.background,
         padding: 15,
-        color: '#fff',
-        // lineHeight: 25,
+        // color: '#fff',
         maxHeight: 200,
         fontSize: 20
     },
@@ -79,7 +75,7 @@ const styles = StyleSheet.create({
         padding: 10,
         textAlign: 'center',
         fontSize: 20,
-        color: '#fff'
+        // color: '#fff'
     }
 })
 

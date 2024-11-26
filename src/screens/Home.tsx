@@ -8,8 +8,7 @@ import { getTranslate } from '../apiController/getTranslate';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import THEME from '../theme/theme';
-
-const theme = THEME['purple']
+import { useAppSettings } from '../theme/ThemeProvider';
 
 const Home = () => {
     const [userInput, setUserInput] = useState<string>('');
@@ -84,24 +83,24 @@ const Home = () => {
         setTranslateText('');
     }
 
+    const [scrollEnabled, setScrollEnabled] = useState(true);
+
+    const { appTheme } = useAppSettings();
+    const theme = THEME[appTheme];
     return (
-        <ScrollView style={styles.scroll}>
+        <View>
             <ScrollView>
                 <TextField
                     placeholder='Введите текст'
                     value={userInput}
                     setValue={setUserInput}
                     replyContent={
-                        <>
-                            <PicButton name='content-paste' color='#fff' />
-                            <PicButton name='copy-all' color='#fff' />
                             <PicButton name='clear' color='#f00' onPress={handleClearUserInput} />
-                        </>
                     }
                     button={
                         <Button title='Перевести' onPress={handleTranslate} />
                     }
-                    dropdown={<Select setSelect={setSelectedLanguage} selectLanguage={selectedLanguage}/>}
+                    dropdown={<Select setSelect={setSelectedLanguage} scrollEnabled={() => { setScrollEnabled(prev => !prev) } } selectLanguage={selectedLanguage}/>}
                 />
             </ScrollView>
             <View style={styles.contentCenter}>
@@ -113,16 +112,14 @@ const Home = () => {
                     setValue={setTranslateText}
                     title='Перевод'
                     hidden
-                    replyContent={
-                        <>
-                            <PicButton name='bookmark-outline' color='#fff' onPress={handleSaveOnDevice} />
-                            <PicButton name='copy-all' color='#fff' />
+                    replyContent={<>
+                            <PicButton name='save' color={theme.background} onPress={handleSaveOnDevice} />
                             <PicButton name='clear' color='#f00' onPress={handleClearTranslated} />
-                        </>
+                    </>
                     }
                 />
             </ScrollView>
-        </ScrollView>
+        </View>
     )
     }
 
