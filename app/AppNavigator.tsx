@@ -5,6 +5,7 @@ import React from 'react'
 import { StatusBar, View } from 'react-native';
 import Header from './Header';
 import { useTheme } from '@/Theme/ThemeProvider';
+import Bookmarks from '@/screens/Bookmarks';
 
 const Tab = createBottomTabNavigator();
 const AppNavigator = () => {
@@ -25,7 +26,7 @@ const AppNavigator = () => {
                     tabBarIcon: () => (<MaterialIcons name="translate" size={24} color={theme.textColor} />),
                     tabBarActiveTintColor: theme.activeTabColor,
                 }} />
-                <Tab.Screen name="Bookmarks" component={View} options={{
+                <Tab.Screen name="Bookmarks" component={Bookmarks} options={{
                     tabBarLabel: 'Закладки',
                     title: 'Закладки',
                     tabBarLabelStyle: {fontSize: 14},

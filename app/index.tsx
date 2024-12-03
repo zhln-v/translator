@@ -1,20 +1,21 @@
-import React from 'react'
-import { View } from 'react-native'
+import React, { useState } from 'react';
+import { View, Modal, Text, Pressable, StyleSheet } from 'react-native';
 import Header from './Header';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Translate from '@/screens/Translate';
 import { ThemeProvider } from '@/Theme/ThemeProvider';
 import AppNavigator from './AppNavigator';
+import Settings from './Settings';
 
-
-
-const index = () => {
+const Index = () => {
     return (
         <ThemeProvider>
             <AppNavigator />
-        </ThemeProvider>
-    )
-}
 
-export default index
+            <Settings />
+        </ThemeProvider>
+    );
+};
+
+export default Index;

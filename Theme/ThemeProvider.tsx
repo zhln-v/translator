@@ -18,6 +18,11 @@ interface ThemeContextType {
   themeName: string; // Название текущей темы
   setTheme: (index: number) => void; // Установка темы по индексу
   nextTheme: () => void; // Переключение на следующую тему
+  setVisibleModal: () => void;
+  setHiddenModal: () => void;
+  setFontSize: (value: number) => void;
+  fontSize: number;
+  isShowModal: boolean;
   themes: Theme[]; // Все темы
 }
 
@@ -41,6 +46,16 @@ interface ThemeProviderProps {
 // Провайдер темы
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [themeIndex, setThemeIndex] = useState(0); // Индекс текущей темы
+  const [isShowModal, setShowModal] = useState<boolean>(false);
+  const [fontSize, setFontSize] = useState<number>(16);
+
+  const setVisibleModal = () => {
+    setShowModal(prev => !prev);
+  }
+
+  const setHiddenModal = () => {
+    setShowModal(prev => !prev);
+  }
 
   // Переключение на следующую тему
   const nextTheme = () => {
@@ -61,6 +76,11 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
         themeName: themes[themeIndex].name, // Название текущей темы
         setTheme,
         nextTheme,
+        setVisibleModal,
+        setHiddenModal,
+        isShowModal,
+        setFontSize,
+        fontSize,
         themes, // Массив всех тем
       }}
     >

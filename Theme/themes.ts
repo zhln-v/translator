@@ -1,93 +1,93 @@
 const themes = [
   {
-    name: 'light',
+    name: 'Светлая',
     backgroundColor: '#ffffff',
     textColor: '#000000',
     headerColor: '#f5f5f5',
     buttonColor: '#6200ea',
     fieldColor: '#e0e0e0',
-    activeTabColor: '#6200ea', // Активная вкладка будет фиолетовой
+    activeTabColor: '#6200ea',
   },
   {
-    name: 'dark',
+    name: 'Тёмная',
     backgroundColor: '#121212',
     textColor: '#ffffff',
     headerColor: '#1f1f1f',
     buttonColor: '#bb86fc',
     fieldColor: '#2c2c2c',
-    activeTabColor: '#bb86fc', // Активная вкладка будет фиолетово-розовой
+    activeTabColor: '#bb86fc',
   },
   {
-    name: 'sunset',
+    name: 'Закат',
     backgroundColor: '#ffecd2',
     textColor: '#4a0000',
     headerColor: '#ffafbd',
     buttonColor: '#ff5722',
     fieldColor: '#ffe4e1',
-    activeTabColor: '#ff5722', // Активная вкладка будет оранжевой
+    activeTabColor: '#ff5722',
   },
   {
-    name: 'ocean',
+    name: 'Окен',
     backgroundColor: '#e0f7fa',
     textColor: '#006064',
     headerColor: '#00acc1',
     buttonColor: '#0097a7',
     fieldColor: '#b2ebf2',
-    activeTabColor: '#00acc1', // Активная вкладка будет бирюзовой
+    activeTabColor: '#00acc1',
   },
   {
-    name: 'forest',
+    name: 'Лес',
     backgroundColor: '#e8f5e9',
     textColor: '#1b5e20',
     headerColor: '#66bb6a',
     buttonColor: '#388e3c',
     fieldColor: '#c8e6c9',
-    activeTabColor: '#388e3c', // Активная вкладка будет зелёной
+    activeTabColor: '#388e3c',
   },
   {
-    name: 'desert',
+    name: 'Пустыня',
     backgroundColor: '#fce4ec',
     textColor: '#880e4f',
     headerColor: '#f8bbd0',
     buttonColor: '#d81b60',
     fieldColor: '#fce4ec',
-    activeTabColor: '#d81b60', // Активная вкладка будет розовой
+    activeTabColor: '#d81b60',
   },
   {
-    name: 'midnight',
+    name: 'Тёмная ночь',
     backgroundColor: '#212121',
     textColor: '#e0e0e0',
     headerColor: '#424242',
     buttonColor: '#757575',
     fieldColor: '#616161',
-    activeTabColor: '#e0e0e0', // Активная вкладка будет светло-серой
+    activeTabColor: '#e0e0e0',
   },
   {
-    name: 'spring',
+    name: 'Весня',
     backgroundColor: '#f0f4c3',
     textColor: '#827717',
     headerColor: '#dce775',
     buttonColor: '#afb42b',
     fieldColor: '#e6ee9c',
-    activeTabColor: '#afb42b', // Активная вкладка будет зелёно-жёлтой
+    activeTabColor: '#afb42b',
   },
   {
-    name: 'rose',
+    name: 'Розовая',
     backgroundColor: '#fff0f5',
     textColor: '#c2185b',
     headerColor: '#f8bbd0',
     buttonColor: '#ad1457',
     fieldColor: '#fce4ec',
-    activeTabColor: '#ad1457', // Активная вкладка будет тёмно-розовой
+    activeTabColor: '#ad1457',
   },
   {
-    name: 'royal',
+    name: 'Роял',
     backgroundColor: '#ede7f6',
     textColor: '#311b92',
     headerColor: '#673ab7',
     buttonColor: '#4527a0',
     fieldColor: '#d1c4e9',
-    activeTabColor: '#673ab7', // Активная вкладка будет фиолетовой
+    activeTabColor: '#673ab7',
   },
 ];
 
