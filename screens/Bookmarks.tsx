@@ -12,7 +12,7 @@ interface Translation {
 }
 
 const Bookmarks = () => {
-  const {theme} = useTheme();
+  const {theme, fontSize} = useTheme();
   const [translations, setTranslations] = useState<Translation[]>([]);
 
   // Загрузка сохранённых переводов
@@ -66,11 +66,11 @@ const Bookmarks = () => {
   // Компонент для отображения перевода
   const renderTranslation = ({ item, index }: { item: Translation, index: number }) => (
     <View style={[styles.translationItem, {backgroundColor: theme.fieldColor}]}>
-      <Text style={[styles.originalText, {color: theme.buttonColor}]}>{item.original}</Text>
-      <Text style={[styles.translatedText, {color: theme.textColor}]}>{item.translated}</Text>
-      <Text style={styles.languageText}>Переведено с: {item.language}</Text>
+      <Text style={[styles.originalText, {color: theme.textColor, fontSize}]}>{item.original}</Text>
+      <Text style={[styles.translatedText, {color: theme.textColor, fontSize}]}>{item.translated}</Text>
+      <Text style={[styles.languageText, { color: theme.buttonColor, fontSize }]}>Переведено с: {item.language}</Text>
       <TouchableOpacity onPress={() => deleteTranslation(index)}>
-        <Text style={[styles.deleteButton, {color: theme.buttonColor}]}>Удалить</Text>
+        <Text style={[styles.deleteButton, {color: theme.buttonColor, fontSize}]}>Удалить</Text>
       </TouchableOpacity>
     </View>
   );
